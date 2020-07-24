@@ -27,13 +27,13 @@ const App = () => {
         flexDirection: 'column',
         alignSelf: 'center',
         justifyContent: 'space-between',
+        marginTop: 80,
         // alignItems: 'center'
       }}>
         
-      <Image
-          source = {R.image.newImage}
-        />
-
+      <Image source = {R.image.newImage}/>
+      <Text source = {R.string.newText}/>
+      
       </View>   
   );
 };

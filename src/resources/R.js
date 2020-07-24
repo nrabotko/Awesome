@@ -5,7 +5,7 @@ export default class R {
         newImage: require('../image/Group.png'),
     };
     static string = {
-        newText: 'Hello, world!',
+        newText: 'Помогай проснуться твоим близким, с помощью общего будильника',
     };
 
 };
