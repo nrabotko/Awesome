@@ -6,12 +6,14 @@
  * @flow strict-local
  */
 
-import React from 'react';
+import React, {useState, useEffect} from 'react';
 import {
   StyleSheet,
+  SafeAreaView,
   View,
   Image,
   Text,
+  Dimensions
 } from 'react-native';
 
 import {
@@ -19,73 +21,79 @@ import {
 } from 'react-native/Libraries/NewAppScreen';
 import R from './src/resources/R';
 
-const App = () => {
+function App() {
+
+    const maxWidth = Dimensions.get('screen').width;
+    console.log('maxWidth', maxWidth);
+    const maxHeight = Dimensions.get('screen').height;
+    console.log('maxHeight', maxHeight);
+
+    const [width, setWidth] = useState();
+    const [height, setHeight] = useState();
+
+    useEffect(() => {
+      setHeight(maxHeight);
+      setWidth(maxWidth);
+    },[]);
+
   return (
-      <View>
-        <View style = {styles.imageStyles} >
+    <SafeAreaView style={styles.container}>
+
+        <View style = {styles.image} >
           <Image source = {R.image.newImage}/>
         </View>
         
         <View style = {styles.textalign}>
           <Text style = {styles.text}>{R.string.newText}</Text>
         </View>
-
-        <View style = {styles.textalign1}>
-          <View style = {styles.align}>
-            <Text style = {styles.text1}>Пропустить</Text>
-          </View>
+        <View style = {styles.button}>
+          <Text style = {styles.text1}>Высота: {height} и ширина: {width}</Text>
         </View>
 
-      </View>   
+    </SafeAreaView> 
   );
 };
 
 const styles = StyleSheet.create({
-  imageStyles:{
-      flex: 1,
-      flexDirection: 'column',
-      alignSelf: 'center',
-      justifyContent: 'space-between',
+  container: {
+    flex: 1
+    // marginTop: Constants.statusBarHeight,
+  },
+  image:{
       marginTop: 80,
       alignItems: 'center'
   },
+  textalign: {
+    alignSelf: 'center',
+    marginTop: 34
+  },
+  scrollView: {
+    marginHorizontal: 20,
+    flex: 1
+  },
   text: {
-    fontFamily: "Fira Sans Condensed",
+    // fontFamily: "Fira Sans Condensed",
     fontSize: 24,
     fontWeight: "normal",
     lineHeight: 29,
-    color: "black",
+    color: R.color.black,
     alignItems: 'center',
-    textAlign: 'center',
-    height: 87,
-    marginTop: 460,
-    // ...palette.text, ...{
-    //   marginHorizontal: 8,
-    //   marginVertical: 10
-    // }
+    textAlign: 'center'
   },
-  textalign: {
+  button: {
     position: 'absolute',
-    alignSelf: 'center',
-  },
-  textalign1: {
-    marginRight: 92,
-    alignSelf: 'center',
-    marginTop: 780
-  },
-  align: {
-    position: 'absolute',
-    bottom:0
+    right: 0,
+    left: 0,
+    bottom: 50
+
   },
   text1: {
     fontFamily: "Fira Sans Condensed",
     fontSize: 18,
     fontWeight: "normal",
     lineHeight: 22,
-    color: "rgba(0, 0, 0, 0.61)",
-    alignItems: 'center',
+    color: R.color.grey,
     textAlign: 'center',
-    height: 87
   },
 });
 
