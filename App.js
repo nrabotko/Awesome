@@ -1,89 +1,77 @@
-import React, {useState, useEffect} from 'react';
+import React, {useState} from 'react';
 import {
     StyleSheet,
     SafeAreaView,
     View,
-    Image,
     Text,
-    Dimensions,
+    Image,
+    TouchableOpacity
 } from 'react-native';
 import R from './src/resources/R';
 import MyAwesomeComponent from './src/components/MyAwesomeComponent';
 
 function App() {
 
-    const maxWidth = Dimensions.get('screen').width;
-    console.log('maxWidth', maxWidth);
-    const maxHeight = Dimensions.get('screen').height;
-    console.log('maxHeight', maxHeight);
-
-    const [width, setWidth] = useState();
-    const [height, setHeight] = useState();
-
-    useEffect(() => {
-        setHeight(maxHeight);
-        setWidth(maxWidth);
-    }, []);
-
     return (
         <SafeAreaView style={styles.container}>
-
-            <View style={styles.image}>
-                <Image source={R.image.newImage}/>
-            </View>
-
-            <View style={styles.textalign}>
-                <Text style={styles.text}>{R.string.newText}</Text>
-            </View>
-            <View style={styles.button}>
-                <Text style={styles.text1}>Высота: {height} и ширина: {width}</Text>
-            </View>
-
+            <MyAwesomeComponent/>
+            <MyAwesomeComponent/>
         </SafeAreaView>
     );
 };
 
+
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        // marginTop: Constants.statusBarHeight,
+        justifyContent: "center",
+        paddingHorizontal: 10
     },
-    image: {
-        marginTop: 80,
-        alignItems: 'center',
+
+    container1: {
+        flex: .5,
+        flexDirection: 'column',
+        justifyContent: "center",
+        paddingHorizontal: 10
     },
-    textalign: {
-        alignSelf: 'center',
-        marginTop: 34,
+
+    container2: {
+        flex: .5,
+        flexDirection: 'column',
+        justifyContent: "center",
+        paddingHorizontal: 10
     },
-    scrollView: {
-        marginHorizontal: 20,
-        flex: 1,
-    },
-    text: {
-        // fontFamily: "Fira Sans Condensed",
-        fontSize: 24,
-        fontWeight: 'normal',
-        lineHeight: 29,
-        color: R.color.black,
-        alignItems: 'center',
-        textAlign: 'center',
-    },
-    button: {
-        position: 'absolute',
+
+    image:{
         right: 0,
         left: 0,
-        bottom: 50,
+        alignItems: 'center',
+        marginTop: 10
 
     },
-    text1: {
-        fontFamily: 'Fira Sans Condensed',
-        fontSize: 18,
-        fontWeight: 'normal',
-        lineHeight: 22,
-        color: R.color.grey,
-        textAlign: 'center',
-    },
+    button: {
+        alignItems: "center",
+        backgroundColor: R.color.green,
+        marginTop: 15,
+        borderWidth: 1,
+        borderRadius: 7,
+        padding: 15
+      },
+      countContainer: {
+        alignItems: "center",
+        padding: 15
+
+      },
+      baseText: {
+        fontWeight: 'bold',
+        fontSize: 24,
+        color: R.color.white
+      },
+      innerText: {
+        fontSize: 24,
+        fontWeight: 'bold',
+        color: R.color.blue
+      }
 });
 
 export default App;
