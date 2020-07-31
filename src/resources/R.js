@@ -1,6 +1,4 @@
 import { Group } from "react-native";
-import App from './App';
-import Greeting from './src/Screen/Greeting';
 
 export default class R {
     static image = {
