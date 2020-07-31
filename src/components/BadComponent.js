@@ -10,9 +10,12 @@ import R from '../resources/R';
 
 function BadComponent() {
 
-    let [count, setCount] = useState(0);
-    let onPress = () => setCount(prevCount => prevCount + 1);
-    console.log('count', count);
+    let count = 0;
+    let onPress = () => {
+        count = count + 1;
+        console.log('count', count);
+    } 
+
 
     return (
         <View style={styles.container1}>
@@ -32,6 +35,7 @@ function BadComponent() {
                 </TouchableOpacity>
         </View>
     );
+    
 }
 
 const styles = StyleSheet.create({
