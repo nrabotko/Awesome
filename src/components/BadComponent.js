@@ -1,7 +1,6 @@
 import React, {useState} from 'react';
 import {
     StyleSheet,
-    SafeAreaView,
     View,
     Text,
     Image,
@@ -9,10 +8,11 @@ import {
 } from 'react-native';
 import R from '../resources/R';
 
-function MyAwesomeComponent() {
+function BadComponent() {
 
-    const [count, setCount] = useState(0);
-    const onPress = () => setCount(prevCount => prevCount + 1);
+    let [count, setCount] = useState(0);
+    let onPress = () => setCount(prevCount => prevCount + 1);
+    console.log('count', count);
 
     return (
         <View style={styles.container1}>
@@ -30,7 +30,7 @@ function MyAwesomeComponent() {
                 >
                     <Text style={styles.baseText}>Нажми!</Text>
                 </TouchableOpacity>
-    </View>
+        </View>
     );
 }
 
@@ -87,4 +87,4 @@ const styles = StyleSheet.create({
       }
 });
 
-export default MyAwesomeComponent;
+export default BadComponent;
