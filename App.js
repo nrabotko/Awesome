@@ -9,14 +9,14 @@ import {
 } from 'react-native';
 import R from './src/resources/R';
 import MyAwesomeComponent from './src/components/MyAwesomeComponent';
-import BadAwesomeComponent from './src/components/BadAwesomeComponent';
+import BadComponent from './src/components/BadComponent';
 
 function App() {
 
     return (
         <SafeAreaView style={styles.container}>
             <MyAwesomeComponent/>
-            <BadAwesomeComponent/>
+            <Badomponent/>
         </SafeAreaView>
     );
 };
