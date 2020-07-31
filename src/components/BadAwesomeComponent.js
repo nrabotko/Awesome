@@ -7,20 +7,32 @@ import {
     Image,
     TouchableOpacity
 } from 'react-native';
-import R from './src/resources/R';
-import MyAwesomeComponent from './src/components/MyAwesomeComponent';
-import BadAwesomeComponent from './src/components/BadAwesomeComponent';
+import R from '../resources/R';
 
-function App() {
+function MyAwesomeComponent() {
+
+    const [count, setCount] = useState(0);
+    const onPress = () => setCount(prevCount => prevCount + 1);
 
     return (
-        <SafeAreaView style={styles.container}>
-            <MyAwesomeComponent/>
-            <BadAwesomeComponent/>
-        </SafeAreaView>
+        <View style={styles.container1}>
+            <View style = {styles.image} >
+                <Image source = {R.image.cat}/>
+            </View>
+                <View style={styles.countContainer}>
+                    <Text >Количество нажатий: 
+                    <Text style={styles.innerText}> {count}</Text>
+                    </Text>
+                </View>
+                <TouchableOpacity
+                    style={styles.button}
+                    onPress={onPress}
+                >
+                    <Text style={styles.baseText}>Нажми!</Text>
+                </TouchableOpacity>
+    </View>
     );
-};
-
+}
 
 const styles = StyleSheet.create({
     container: {
@@ -75,4 +87,4 @@ const styles = StyleSheet.create({
       }
 });
 
-export default App;
+export default MyAwesomeComponent;
