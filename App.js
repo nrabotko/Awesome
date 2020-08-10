@@ -1,20 +1,44 @@
 import React, {useState} from 'react';
 import {
+    View,
+    Image,
+    Text,
     StyleSheet,
-    SafeAreaView
+    TouchableOpacity
 } from 'react-native';
 
 import R from './src/resources/R';
-import MyAwesomeComponent from './src/components/MyAwesomeComponent';
-import BadComponent from './src/components/BadComponent';
 
-function App() {
+export default class App extends React.Component {
+    const [count, setCount] = useState(0);
+    
+    onPress = () => {
+        setCount(prevCount => prevCount + 1)
+    }
+    render() {
 
+    }
+}
+
+const App = (props) => {
+    
     return (
-        <SafeAreaView style={styles.container}>
-            <MyAwesomeComponent/>
-            <BadComponent/>
-        </SafeAreaView>
+            <View style={styles.container1}>
+                <View style = {styles.image} >
+                    <Image source = {R.image.cat}/>
+                </View>
+                    <View style={styles.countContainer}>
+                        <Text >Количество нажатий: 
+                        <Text style={styles.innerText}> {props.name}</Text>
+                        </Text>
+                    </View>
+                        <TouchableOpacity
+                            onPress={onPress}
+                            style={styles.button}
+                        >
+                            <Text style={styles.baseText}>Нажми!</Text>
+                        </TouchableOpacity>
+                </View>
     );
 };
 
@@ -73,3 +97,4 @@ const styles = StyleSheet.create({
 });
 
 export default App;
+
