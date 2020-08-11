@@ -9,38 +9,34 @@ import {
 
 import R from './src/resources/R';
 
-export default class App extends React.Component {
+function App () {
     const [count, setCount] = useState(0);
-    
-    onPress = () => {
-        setCount(prevCount => prevCount + 1)
-    }
-    render() {
 
-    }
+    
+    return <Counter value={count}/>;
 }
 
-const App = (props) => {
-    
+function Counter(props) {
+    const onPress = () => setCount(prevCount => prevCount + 1);
     return (
-            <View style={styles.container1}>
+        <View style={styles.container1}>
                 <View style = {styles.image} >
                     <Image source = {R.image.cat}/>
                 </View>
                     <View style={styles.countContainer}>
                         <Text >Количество нажатий: 
-                        <Text style={styles.innerText}> {props.name}</Text>
+                        <Text style={styles.innerText}> {props.value}</Text>
                         </Text>
                     </View>
-                        <TouchableOpacity
-                            onPress={onPress}
-                            style={styles.button}
-                        >
-                            <Text style={styles.baseText}>Нажми!</Text>
-                        </TouchableOpacity>
+                    <TouchableOpacity
+                        onPress={onPress}
+                        style={styles.button}
+                    >
+                        <Text style={styles.baseText}>Нажми!</Text>
+                    </TouchableOpacity>    
                 </View>
     );
-};
+}
 
 
 const styles = StyleSheet.create({
