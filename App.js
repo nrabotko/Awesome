@@ -11,7 +11,7 @@ import R from './src/resources/R';
 
 function App () {
     const [count, setCount] = useState(0);
-
+    //const onPress = () => setCount(prevCount => prevCount + 1);
     
     return <Counter value={count}/>;
 }
