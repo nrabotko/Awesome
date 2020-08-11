@@ -1,43 +1,29 @@
 import React, {useState} from 'react';
 import {
-    View,
-    Image,
     Text,
     StyleSheet,
-    TouchableOpacity
+    SafeAreaView
 } from 'react-native';
 
 import R from './src/resources/R';
+import MyAwesomeComponent from './src/components/MyAwesomeComponent';
+
 
 function App () {
-    const [count, setCount] = useState(0);
-    const onPress = () => setCount(prevCount => prevCount + 1);
-    console.log('count', count);
     
-    return (
-        <View style={styles.container1}>
-                <View style = {styles.image} >
-                    <Image source = {R.image.cat}/>
-                </View>
-                <View style={styles.countContainer}>
-                    <Text >Количество нажатий: 
-                        <Counter value={count}/>
-                    </Text>
-                </View>
-                    <TouchableOpacity
-                        onPress={onPress}
-                        style={styles.button}
-                    >
-                        <Text style={styles.baseText}>Нажми!</Text>
-                    </TouchableOpacity>    
-        </View>
-    ); 
+    const greeting = (
+        <SafeAreaView style={styles.container}>
+            <MyAwesomeComponent/>
+            <MyAwesomeComponent/>
+        </SafeAreaView>
+    );
+    return <Counter value={greeting}/>; 
  
 }
 
 function Counter(props) {
     
-    return <Text style={styles.innerText}> {props.value}</Text>;
+    return <>{props.value}</>;
 }
 
 

@@ -13,6 +13,7 @@ function MyAwesomeComponent() {
 
     const [count, setCount] = useState(0);
     const onPress = () => setCount(prevCount => prevCount + 1);
+    //console.log('count', count);
 
     return (
         <View style={styles.container1}>
