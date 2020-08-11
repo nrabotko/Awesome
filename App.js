@@ -11,31 +11,33 @@ import R from './src/resources/R';
 
 function App () {
     const [count, setCount] = useState(0);
-    //const onPress = () => setCount(prevCount => prevCount + 1);
-    
-    return <Counter value={count}/>;
-}
-
-function Counter(props) {
     const onPress = () => setCount(prevCount => prevCount + 1);
+    console.log('count', count);
+    
     return (
         <View style={styles.container1}>
                 <View style = {styles.image} >
                     <Image source = {R.image.cat}/>
                 </View>
-                    <View style={styles.countContainer}>
-                        <Text >Количество нажатий: 
-                        <Text style={styles.innerText}> {props.value}</Text>
-                        </Text>
-                    </View>
+                <View style={styles.countContainer}>
+                    <Text >Количество нажатий: 
+                        <Counter value={count}/>
+                    </Text>
+                </View>
                     <TouchableOpacity
                         onPress={onPress}
                         style={styles.button}
                     >
                         <Text style={styles.baseText}>Нажми!</Text>
                     </TouchableOpacity>    
-                </View>
-    );
+        </View>
+    ); 
+ 
+}
+
+function Counter(props) {
+    
+    return <Text style={styles.innerText}> {props.value}</Text>;
 }
 
 
