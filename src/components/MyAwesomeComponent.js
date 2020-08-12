@@ -25,7 +25,7 @@ function MyAwesomeComponent() {
                 </View>
                 <TouchableOpacity
                     style={styles.button}
-                    onPress={onPress}
+                    onPress={App.onPress}
                 >
                     <Text style={styles.baseText}>Нажми!</Text>
                 </TouchableOpacity>
