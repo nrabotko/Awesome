@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 import {
-    Text,
+    TouchableOpacity,
     StyleSheet,
     SafeAreaView
 } from 'react-native';
@@ -10,18 +10,21 @@ import MyAwesomeComponent from './src/components/MyAwesomeComponent';
 
 
 function App () {
+
+        return <SafeAreaView style={styles.container}> <MyAwesomeComponent/> </SafeAreaView>
     
+}
+
+function Counter (props) {
+        
     const [count, setCount] = useState(0);
-    setCount(count+1);
-    
-    return <Counter value={App}/>; 
-}
 
-function Counter(props) {
+    onPress = () => {
+        setCount(count+1);
+    }
+    return <Counter value={count}/>;
+};
     
-    return <SafeAreaView style={styles.container}> <MyAwesomeComponent/> </SafeAreaView>;
-}
-
 
 const styles = StyleSheet.create({
     container: {
