@@ -11,19 +11,15 @@ import MyAwesomeComponent from './src/components/MyAwesomeComponent';
 
 function App () {
     
-    const greeting = (
-        <SafeAreaView style={styles.container}>
-            <MyAwesomeComponent/>
-            <MyAwesomeComponent/>
-        </SafeAreaView>
-    );
-    return <Counter value={greeting}/>; 
- 
+    const [count, setCount] = useState(0);
+    setCount(count+1);
+    
+    return <Counter value={App}/>; 
 }
 
 function Counter(props) {
     
-    return <>{props.value}</>;
+    return <SafeAreaView style={styles.container}> <MyAwesomeComponent/> </SafeAreaView>;
 }
 
 

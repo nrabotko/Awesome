@@ -1,4 +1,3 @@
-
 import React, {useState} from 'react';
 import {
     StyleSheet,
@@ -8,11 +7,10 @@ import {
     TouchableOpacity
 } from 'react-native';
 import R from '../resources/R';
+import App from '../../App';
 
 function MyAwesomeComponent() {
-
-    const [count, setCount] = useState(0);
-    const onPress = () => setCount(prevCount => prevCount + 1);
+    
     //console.log('count', count);
 
     return (
@@ -22,7 +20,7 @@ function MyAwesomeComponent() {
             </View>
                 <View style={styles.countContainer}>
                     <Text >Количество нажатий: 
-                    <Text style={styles.innerText}> {count}</Text>
+                    <Text style={styles.innerText}> {App.count}</Text>
                     </Text>
                 </View>
                 <TouchableOpacity
