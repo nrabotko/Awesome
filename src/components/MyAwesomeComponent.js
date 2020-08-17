@@ -7,9 +7,8 @@ import {
     TouchableOpacity
 } from 'react-native';
 import R from '../resources/R';
-import Counter from '../../App';
 
-function MyAwesomeComponent() {
+function MyAwesomeComponent([count, onPress]) {
     
     //console.log('count', count);
 
@@ -20,12 +19,12 @@ function MyAwesomeComponent() {
             </View>
                 <View style={styles.countContainer}>
                     <Text >Количество нажатий: 
-                    <Text style={styles.innerText}> {Counter.count}</Text>
+                    <Text style={styles.innerText}> {count}</Text>
                     </Text>
                 </View>
                 <TouchableOpacity
                     style={styles.button}
-                    onPress={Counter.onPress}
+                    onPress={onPress}
                 >
                     <Text style={styles.baseText}>Нажми!</Text>
                 </TouchableOpacity>
