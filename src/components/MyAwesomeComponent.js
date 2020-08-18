@@ -8,9 +8,8 @@ import {
 } from 'react-native';
 import R from '../resources/R';
 
-function MyAwesomeComponent([count, onPress]) {
+function MyAwesomeComponent({count, onPress}) {
     
-    //console.log('count', count);
 
     return (
         <View style={styles.container1}>

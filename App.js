@@ -10,15 +10,16 @@ import MyAwesomeComponent from './src/components/MyAwesomeComponent';
 
 
 function App () {
-    const [count, setCount] = useState(0);
-
+    
     const onPress = () => {
         setCount(count+1);
     }
+    const [count, setCount] = useState(0);
+    
         return (
         <SafeAreaView style={styles.container}> 
-            <MyAwesomeComponent/> 
-            <MyAwesomeComponent/> 
+            <MyAwesomeComponent count = {count} onPress = {onPress}/> 
+            <MyAwesomeComponent count = {count} onPress = {onPress}/> 
         </SafeAreaView>
         )
 }
