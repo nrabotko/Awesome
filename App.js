@@ -1,23 +1,29 @@
 import React, {useState} from 'react';
 import {
+    TouchableOpacity,
     StyleSheet,
     SafeAreaView
 } from 'react-native';
 
 import R from './src/resources/R';
 import MyAwesomeComponent from './src/components/MyAwesomeComponent';
-import BadComponent from './src/components/BadComponent';
 
-function App() {
 
-    return (
-        <SafeAreaView style={styles.container}>
-            <MyAwesomeComponent/>
-            <BadComponent/>
+function App () {
+    
+    const onPress = () => {
+        setCount(count+1);
+    }
+    const [count, setCount] = useState(0);
+    
+        return (
+        <SafeAreaView style={styles.container}> 
+            <MyAwesomeComponent count = {count} onPress = {onPress}/> 
+            <MyAwesomeComponent count = {count} onPress = {onPress}/> 
         </SafeAreaView>
-    );
-};
-
+        )
+}
+  
 
 const styles = StyleSheet.create({
     container: {
@@ -73,3 +79,4 @@ const styles = StyleSheet.create({
 });
 
 export default App;
+

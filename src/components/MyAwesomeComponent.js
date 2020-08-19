@@ -1,4 +1,3 @@
-
 import React, {useState} from 'react';
 import {
     StyleSheet,
@@ -9,10 +8,8 @@ import {
 } from 'react-native';
 import R from '../resources/R';
 
-function MyAwesomeComponent() {
-
-    const [count, setCount] = useState(0);
-    const onPress = () => setCount(prevCount => prevCount + 1);
+function MyAwesomeComponent({count, onPress}) {
+    
 
     return (
         <View style={styles.container1}>
